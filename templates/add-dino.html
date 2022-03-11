@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block title %} Add a dino! {% endblock %}
+
+{% block content %}
+<h1>Add a Dinosaur!</h1>
+
+<form method="POST" name="add_dino">
+    <div>
+        <label for="slug">Slug:</label>
+        <input type="text" id="slug" name="slug">
+    </div>
+
+    <div>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name">
+    </div>
+
+    <div>
+        <label for="desc">Description:</label>
+        <textarea id="desc" name="desc"> </textarea>
+    </div>
+
+    <div>
+        <label for="image">Image:</label>
+        <input type="text" id="image" name="image">
+    </div>
+
+    <div>
+        <label for="icredit">Image-Credit:</label>
+        <input type="text" id="icredit" name="icredit">
+    </div>
+
+    <div>
+        <label for="source">Source-URL:</label>
+        <input type="text" id="source" name="source">
+    </div>
+
+    <div>
+        <label for="scredit">Source-Credit:</label>
+        <input type="text" id="scredit" name="scredit">
+    </div>
+    
+    <button type="submit" value="Submit">Submit</button>
+    <button type="reset" value="Reset">Reset</button>
+</form>
+
+{% endblock %}

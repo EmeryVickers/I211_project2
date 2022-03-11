@@ -1,12 +1,7 @@
-/* natural box model */
-html {
-  box-sizing: border-box;
+main > .container {
+  padding: 100px 15px 0 !important;
 }
-*,
-*:before,
-*:after {
-  box-sizing: inherit;
-}
-img {
-  max-width: 400px;
+
+.dino-image{
+  min-width: 350px !important;
 }

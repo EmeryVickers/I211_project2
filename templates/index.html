@@ -4,14 +4,21 @@
 {% block content %}
 <h1>DinoSite!</h1>
 
-    {% for dino in dinosaurs %}
-   <h2>{{dinosaurs[dino]['name']}}</h2>
-        <a href="{{url_for('index',dino=dino)}}">
-       <figure>
-           <img src="{{url_for('static', filename='images/' + dinosaurs[dino]['image'])}}" alt="{{dino}}">
-           <figcaption>{{dinosaurs[dino]['image-credit']}}</figcaption>
-       </figure>
-       </a>
-   {% endfor %}
+    
+    <div class="container">
+        <div class="row">
+        {% for dino in dinosaurs %}
+          <div class="col">
+            <h2>{{dinosaurs[dino]['name']}}</h2>
+            <a href="{{url_for('index',dino=dino)}}">
+            <figure>
+                <img class="dino-image img-fluid" src="{{url_for('static', filename='images/' + dinosaurs[dino]['image'])}}" alt="{{dino}}">
+                <figcaption>{{dinosaurs[dino]['image-credit']}}</figcaption>
+            </figure>
+        </a>
+          </div>
+          {%endfor%}
+        </div>
+      </div>
 
 {% endblock %}
