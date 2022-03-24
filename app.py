@@ -76,3 +76,26 @@ def add_dino():
         return redirect(url_for('index'))
     else:
         return render_template('add-dino.html')
+
+@app.route('/dino-quiz',methods=['GET','POST'])
+def dino_quiz():
+    if request.method == 'POST':
+        quizGuesses = {}
+        quizGuesses['Question 1'] = request.form['continents']
+        quizGuesses['Question 2'] = request.form.get('eggs','false')
+        quizGuesses['Question 3'] = request.form.getlist('herbivores')
+        quizGuesses['Question 4'] = request.form['extinct']
+
+        quizGuesses['Question 3'] = " and ".join(quizGuesses['Question 3'])
+
+        quizAnswers={
+            'Question 1' : 'North America',
+            'Question 2' : 'true',
+            'Question 3' : 'Stegosaurus and Triceratops',
+            'Question 4' : '66'
+        }
+
+        return render_template('quiz-results.html',quizGuesses=quizGuesses, quizAnswers=quizAnswers)
+    
+    else:
+        return render_template('dino-quiz.html')

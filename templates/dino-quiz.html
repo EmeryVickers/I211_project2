@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block title %}Dino-Quiz!{% endblock %}
+
+{% block content %}
+<h1> Dinosaur Quiz! </h1>
+
+<form action="{{url_for('dino_quiz')}}" method="POST" name="dino_quiz">
+
+<!--Question 1-->
+<div>
+    <legend>Dinosaur fossils have been found on all seven continents. On which 
+    continent have the most dinosaur fossils been found?</legend>
+    <select class="form-select mb-3" aria-label="seven continents" id="continents" name = "continents">
+        <option>Africa</option>
+        <option>Antarctica</option>
+        <option>Asia</option>
+        <option>Australia</option>
+        <option>Europe</option>
+        <option>North America</option>
+        <option>South America</option>
+    </select>
+</div>
+<!--Question 2-->
+    <fieldset>
+        <legend>All dinosaurs hatched from eggs. True or False?</legend>
+        <div class="form-check">
+                <label class="form-check-label" for="true">True</label>
+                <input class="form-check-input" type="radio" id="true" name="eggs" value="true">
+        </div>
+        <div class="form-check mb-3">
+                <label class="form-check-label" for="false">False</label>
+                <input class="form-check-input" type="radio" id="true" name="eggs" value="false">
+        </div>
+    </fieldset>
+
+<!--Question 3-->
+<fieldset>
+    <legend>Which of these dinosaurs are herbivores?</legend>
+        <div class="form-check">
+            <label class="form-check-label" for="Stegosaurus">Stegosaurus</label>
+            <input class="form-check-input" type="checkbox" id="Stegosaurus" name="herbivores" value="Stegosaurus">
+        </div>
+        <div class="form-check">
+            <label class="form-check-label" for="Triceratops">Triceratops</label>
+            <input class="form-check-input" type="checkbox" id="Triceratops" name="herbivores" value="Triceratops">
+        </div>
+        <div class="form-check">
+            <label class="form-check-label" for="Allosaurus">Allosaurus</label>
+            <input class="form-check-input" type="checkbox" id="Allosaurus" name="herbivores" value="Allosaurus">
+        </div>
+        <div class="form-check">
+            <label class="form-check-label" for="Velociraptor">Velociraptor</label>
+            <input class="form-check-input" type="checkbox" id="Velociraptor" name="herbivores" value="Velociraptor">
+        </div>
+        
+    
+</fieldset>
+
+<!--Question 4-->
+<div class = "mb-3">
+    <legend>Dinosaurs went extinct:</legend>
+    <input class="form-control"type="text" id="extinct" name="extinct">
+    <label class="form-label" for="extinct">millions of years ago</label>
+</div>
+
+<button type="submit" value="Submit">Submit</button>
+<button type="reset" value="Reset">Reset</button>
+</form>
+{% endblock %}
