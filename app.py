@@ -3,7 +3,11 @@ import csv
 
 app = Flask(__name__)
 
-with open('dinosaurs.csv', 'r') as csvfile:
+#global variables to help with getting and setting dinosaur data
+DINO_PATH = app.root_path + '/dinosaurs.csv'
+DINO_KEYS = ['slug', 'name', 'description', 'image', 'image-credit', 'source-url', 'source-credit']
+
+with open(DINO_PATH, 'r') as csvfile:
    data = csv.DictReader(csvfile)
    dinosaurs = {row['slug']:{'name':row['name'], 'description':row['description'], 'image':row['image'], 'image-credit':row['image-credit'], 'source-url':row['source-url'], 'source-credit':row['source-credit']} for row in data}
 
@@ -28,9 +32,7 @@ def about():
 
 
 
-#global variables to help with getting and setting dinosaur data
-DINO_PATH = app.root_path + '/dinosaurs.csv'
-DINO_KEYS = ['slug', 'name', 'description', 'image', 'image-credit', 'source-url', 'source-credit']
+
 
 #function to get the dinosaurs dictionary of dictionaries data from csv file
 def get_dinos():
